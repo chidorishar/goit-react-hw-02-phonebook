@@ -1,3 +1,7 @@
-export class App {
-  render() {}
+import { Component } from 'react';
+export class App extends Component {
+  render() {
+    return (
+    );
+  }
 }
