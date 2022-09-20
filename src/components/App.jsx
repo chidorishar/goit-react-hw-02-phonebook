@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { ThemeProvider } from '@emotion/react';
-import { theme } from 'utils/Theme.styled';
 import { ContactForm, ContactList } from './AllComponents';
 
 export class App extends Component {
