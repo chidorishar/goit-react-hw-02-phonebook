@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { interactiveInput } from 'components/common/sharedStyles';
 
 export const FilterLabel = styled.label`
   font-size: ${p => p.theme.fontSizes[2]};
@@ -15,21 +16,13 @@ export const FilterLabel = styled.label`
 `;
 
 export const FilterInput = styled.input`
+  ${interactiveInput};
+
   font-size: ${p => p.theme.fontSizes[1]};
   font-weight: ${p => p.theme.fontWeights.medium};
 
-  display: block;
   width: ${p => p.theme.sizes.small};
   margin-top: ${p => p.theme.space[1]}px;
   padding: ${p => p.theme.space[1]}px;
   border-radius: ${p => p.theme.radii.normal};
-  border-style: solid;
-  outline: none;
-
-  transition: border-color ${p => p.theme.transitions.normal};
-
-  &:focus,
-  &:active {
-    border-color: ${p => p.theme.colors.accent};
-  }
 `;
