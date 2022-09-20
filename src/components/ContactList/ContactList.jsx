@@ -1,9 +1,18 @@
 import { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { Box } from 'components/common/Box/Box.styled';
+import { theme } from 'utils/theme';
 import { ContactInfo, ContactsList, DeleteButton } from './ContactList.styled';
 
 export class ContactList extends Component {
+  state = {
+    contactIdWithHoveredButton: '',
+  };
+
+  onDeleteButtonHovered = contactId => {
+    this.setState({ contactIdWithHoveredButton: contactId });
+  };
+
   render() {
     return (
       <ContactsList>
@@ -17,7 +26,13 @@ export class ContactList extends Component {
             border="small"
             borderRadius="big"
             borderColor="#00000039"
-            boxShadow="inputInset"
+            style={{
+              boxShadow:
+                this.state.contactIdWithHoveredButton === id
+                  ? theme.shadows.inputInsetWarning
+                  : theme.shadows.inputInset,
+            }}
+            transition="box-shadow normal"
             as="li"
             key={id}
           >
@@ -26,6 +41,8 @@ export class ContactList extends Component {
             </ContactInfo>
             <DeleteButton
               onClick={() => this.props.onContactRemoveCallback(id)}
+              onMouseEnter={() => this.onDeleteButtonHovered(id)}
+              onMouseOut={() => this.onDeleteButtonHovered('')}
               isDelete={true}
             >
               Delete
