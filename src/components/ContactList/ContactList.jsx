@@ -9,10 +9,15 @@ export class ContactList extends Component {
       <ContactsList>
         {this.props.contacts.map(({ name, number, id }) => (
           <Box
-            mb="8px"
+            mb={[2]}
+            p={[2]}
             display="flex"
             alignItems="center"
             justifyContent="space-between"
+            border="small"
+            borderRadius="big"
+            borderColor="#00000039"
+            boxShadow="inputInset"
             as="li"
             key={id}
           >
@@ -21,6 +26,7 @@ export class ContactList extends Component {
             </ContactInfo>
             <DeleteButton
               onClick={() => this.props.onContactRemoveCallback(id)}
+              isDelete={true}
             >
               Delete
             </DeleteButton>

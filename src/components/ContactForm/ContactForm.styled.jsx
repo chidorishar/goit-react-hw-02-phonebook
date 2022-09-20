@@ -9,21 +9,18 @@ export const AddContactButton = styled.button`
 
   width: ${p => p.theme.sizes.small};
   margin: 0;
-  margin-top: ${p => p.theme.space[2]}px;
+  margin-top: ${p => p.theme.space[3]}px;
   padding: ${p => p.theme.space[2]}px;
   border-radius: ${p => p.theme.radii.big};
 `;
 
 export const AddContactForm = styled.form`
-  width: ${p => p.theme.sizes.wide};
-  margin-left: ${p => p.theme.space[1]}px;
   padding: ${p => p.theme.space[3]}px;
-
-  border: ${p => p.theme.borders.mediumDashed + p.theme.colors.accentSecondary};
+  border-top: ${p => p.theme.borders.smallDashed};
 `;
 
 export const InputInfoLabel = styled.label`
-  font-size: ${p => p.theme.fontSizes[2]};
+  font-size: ${p => p.theme.fontSizes[2]}px;
   font-weight: ${p => p.theme.fontWeights.medium};
 
   display: block;
@@ -39,10 +36,11 @@ export const InputInfoLabel = styled.label`
 export const ContactInput = styled.input`
   ${interactiveInput};
 
-  font-size: ${p => p.theme.fontSizes[1]};
+  font-size: ${p => p.theme.fontSizes[1]}px;
   font-weight: ${p => p.theme.fontWeights.medium};
 
   width: ${p => p.theme.sizes.small};
+  margin: 0 auto;
   margin-top: ${p => p.theme.space[1]}px;
   padding: ${p => p.theme.space[1]}px;
   border-radius: ${p => p.theme.radii.normal};

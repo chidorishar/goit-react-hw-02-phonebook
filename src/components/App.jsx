@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { ThemeProvider } from '@emotion/react';
-import { theme } from 'utils/Theme';
+import { theme } from 'utils/theme';
+import { Box } from 'components/common/Box/Box.styled';
 import { ContactForm, ContactList, Filter } from './AllComponents';
 
 export class App extends Component {
@@ -73,17 +74,34 @@ export class App extends Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <>
-          <h1>Phonebook</h1>
-          <ContactForm onSubmitCallback={onAddContactFormSubmit} />
+        <Box
+          width="wide"
+          m={[3]}
+          p={[3]}
+          textAlign="center"
+          borderRadius="small"
+          boxShadow="medium"
+        >
+          <Box margin="0 auto" color="textColored">
+            <h1>Phonebook</h1>
+            <ContactForm onSubmitCallback={onAddContactFormSubmit} />
 
-          <h2>Contacts</h2>
-          <Filter value={filter} onInputCallback={onContactsFiltering} />
-          <ContactList
-            contacts={filteredContacts}
-            onContactRemoveCallback={onRemoveContact}
-          />
-        </>
+            <Box
+              width={0.85}
+              margin="0 auto"
+              mt={[4]}
+              borderColor="accentSecondary"
+              color="textColoredSecondary"
+            >
+              <h2>Contacts</h2>
+              <Filter value={filter} onInputCallback={onContactsFiltering} />
+              <ContactList
+                contacts={filteredContacts}
+                onContactRemoveCallback={onRemoveContact}
+              />
+            </Box>
+          </Box>
+        </Box>
       </ThemeProvider>
     );
   }
