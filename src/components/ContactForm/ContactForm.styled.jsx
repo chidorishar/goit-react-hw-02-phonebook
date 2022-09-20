@@ -1,67 +1,65 @@
 import styled from '@emotion/styled';
 
-const accentedColor = '#00b984';
-const defTransParam = '250ms ease-in-out';
-
 export const Button = styled.button`
-  font-weight: 700;
+  font-weight: ${p => p.theme.fontWeights.bold};
 
   margin: 0;
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid;
-  border-radius: 8px;
+  margin-top: ${p => p.theme.space[2]}px;
+  padding: ${p => p.theme.space[2]}px;
+  border: ${p => p.theme.borders.small};
+  border-radius: ${p => p.theme.radii.big};
 
   cursor: pointer;
-  transition: background-color ${defTransParam}, color ${defTransParam};
+  transition: background-color ${p => p.theme.transitions.normal};, color ${p =>
+  p.theme.transitions.normal};;
 
   &:focus,
   &:hover {
     outline: none;
 
-    background-color: ${accentedColor};
-    color: #121c2f;
+    background-color: ${p => p.theme.colors.accent};
+    color: ${p => p.theme.colors.dark};
   }
 `;
 
 export const Form = styled.form`
-  width: 450px;
-  margin-left: 5px;
-  padding: 15px;
+  width: ${p => p.theme.sizes.wide};
+  margin-left: ${p => p.theme.space[1]}px;
+  padding: ${p => p.theme.space[3]}px;
 
-  border: 2px dashed #5c91f9;
+  border: ${p => p.theme.borders.mediumDashed + p.theme.colors.accentSecondary};
 `;
 
 export const Label = styled.label`
-  font-size: 16px;
-  font-weight: 500;
+  font-size: ${p => p.theme.fontSizes[2]};
+  font-weight: ${p => p.theme.fontWeights.medium};
 
   display: block;
-  margin: 0 0 10px;
+  margin-bottom: ${p => p.theme.space[2]}px;
 
-  transition: color ${defTransParam};
+  transition: color ${p => p.theme.transitions.normal};
 
   &:focus-within {
-    color: ${accentedColor};
+    color: ${p => p.theme.colors.accent};
   }
 `;
 
 export const Input = styled.input`
-  font-size: 14px;
-  font-weight: 500;
+  font-size: ${p => p.theme.fontSizes[1]};
+  font-weight: ${p => p.theme.fontWeights.medium};
 
   display: block;
-  width: 200px;
-  margin: 5px 0 0;
-  padding: 5px;
-  border-radius: 5px;
+  width: ${p => p.theme.sizes.small};
+  margin-top: ${p => p.theme.space[1]}px;
+  padding: ${p => p.theme.space[1]}px;
+  border-radius: ${p => p.theme.radii.normal};
   border-style: solid;
   outline: none;
 
-  transition: border-color ${defTransParam};
+  transition: border-color ${p => p.theme.transitions.normal};
 
   &:focus,
   &:active {
-    border-color: ${accentedColor};
+    border-color: ${p => p.theme.colors.accent};
   }
 `;
