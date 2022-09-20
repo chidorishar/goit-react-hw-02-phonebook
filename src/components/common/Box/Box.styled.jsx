@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { system } from 'styled-system';
+
 import {
   border,
   color,
@@ -16,5 +18,17 @@ export const Box = styled('div')(
   shadow,
   layout,
   space,
-  typography
+  typography,
+  system({
+    transition: {
+      property: 'transition',
+      scale: 'transitions',
+      transform(value, scale) {
+        const values = value.split(' ');
+        const valueFromTheme = scale[values[1]];
+
+        return valueFromTheme ? `${values[0]} ${valueFromTheme}` : '';
+      },
+    },
+  })
 );
