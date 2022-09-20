@@ -10,8 +10,8 @@ export const Button = styled.button`
   border-radius: ${p => p.theme.radii.big};
 
   cursor: pointer;
-  transition: background-color ${p => p.theme.transitions.normal};, color ${p =>
-  p.theme.transitions.normal};;
+  transition: background-color ${p => p.theme.transitions.normal},
+    color ${p => p.theme.transitions.normal};
 
   &:focus,
   &:hover {
