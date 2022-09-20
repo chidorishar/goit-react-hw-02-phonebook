@@ -15,7 +15,21 @@ export class App extends Component {
   };
 
   onContactFormSubmit = ({ name, number, id }) => {
-    console.log(name, number, id);
+    this.setState(prevState => {
+      return {
+        contacts: [...prevState.contacts, { name, number, id }],
+      };
+    });
+  };
+
+  onRemoveContact = contactIdToRemove => {
+    this.setState(prevState => {
+      return {
+        contacts: prevState.contacts.filter(
+          ({ id }) => id !== contactIdToRemove
+        ),
+      };
+    });
   };
 
   render() {
