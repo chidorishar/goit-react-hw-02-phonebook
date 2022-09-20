@@ -16,8 +16,10 @@ export class App extends Component {
 
   onAddContactFormSubmit = ({ name, number, id }) => {
     this.setState(prevState => {
+      const normName = name.trim();
+
       return {
-        contacts: [...prevState.contacts, { name, number, id }],
+        contacts: [...prevState.contacts, { name: normName, number, id }],
       };
     });
   };
@@ -36,12 +38,14 @@ export class App extends Component {
     this.setState({ filter: e.target.value });
   };
 
-  getFilteredContacts = filteredValue => {
+  getFilteredContacts = filterString => {
     const { contacts } = this.state;
-    const normalizedFilter = filteredValue.toLowerCase().trim();
+    const normalizedFilter = filterString.toLowerCase().trim();
 
     return contacts.filter(({ name }) =>
-      name.trim().toLowerCase().includes(normalizedFilter)
+      name.toLowerCase().includes(normalizedFilter)
+    );
+  };
     );
   };
 
