@@ -5,6 +5,7 @@ import { activeAccentedButton } from 'components/common/sharedStyles';
 export const AddContactButton = styled.button`
   ${activeAccentedButton};
 
+  font-size: ${p => p.theme.fontSizes[1]}px;
   font-weight: ${p => p.theme.fontWeights.bold};
 
   width: ${p => p.theme.sizes.small};

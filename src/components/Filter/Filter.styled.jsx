@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { interactiveInput } from 'components/common/sharedStyles';
 
 export const FilterLabel = styled.label`
-  font-size: ${p => p.theme.fontSizes[2]};
+  font-size: ${p => p.theme.fontSizes[2]}px;
   font-weight: ${p => p.theme.fontWeights.medium};
 
   display: block;
