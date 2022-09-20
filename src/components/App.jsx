@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from 'utils/Theme.styled';
-import { ContactForm } from './AllComponents';
+import { ContactForm, ContactList } from './AllComponents';
 
 export class App extends Component {
   state = {
@@ -35,14 +35,17 @@ export class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <div>
+        <>
           <h1>Phonebook</h1>
           <ContactForm onSubmitCallback={this.onContactFormSubmit} />
 
           <h2>Contacts</h2>
-          {/* <Filter ... />
-      <ContactList ... /> */}
-        </div>
+          {/* <Filter ... /> */}
+          <ContactList
+            contacts={this.state.contacts}
+            onContactRemoveCallback={this.onRemoveContact}
+          />
+        </>
       </ThemeProvider>
     );
   }
