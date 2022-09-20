@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { ThemeProvider } from '@emotion/react';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { theme } from 'utils/theme';
 import { Box } from 'components/common/Box/Box.styled';
 import { ContactForm, ContactList, Filter } from './AllComponents';
@@ -17,7 +18,7 @@ export class App extends Component {
 
   onAddContactFormSubmit = ({ name, number, id }) => {
     if (this.hasContactWithName(name)) {
-      alert("Can't add already existing contact");
+      Notify.warning("Can't add already existing contact");
       return;
     }
 
