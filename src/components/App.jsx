@@ -16,7 +16,7 @@ export class App extends Component {
     filter: '',
   };
 
-  onAddContactFormSubmit = ({ name, number, id }) => {
+  onContactAdd = ({ name, number, id }) => {
     if (this.hasContactWithName(name)) {
       Notify.warning("Can't add already existing contact");
       return;
@@ -64,7 +64,7 @@ export class App extends Component {
 
   render() {
     const {
-      onAddContactFormSubmit,
+      onContactAdd,
       onContactsFiltering,
       onRemoveContact,
       getFilteredContacts,
@@ -85,7 +85,7 @@ export class App extends Component {
         >
           <Box margin="0 auto" color="textColored">
             <h1>Phonebook</h1>
-            <ContactForm onSubmitCallback={onAddContactFormSubmit} />
+            <ContactForm onSubmitCallback={onContactAdd} />
 
             <Box
               width={0.85}
