@@ -15,6 +15,11 @@ export class App extends Component {
   };
 
   onAddContactFormSubmit = ({ name, number, id }) => {
+    if (this.hasContactWithName(name)) {
+      alert("Can't add already existing contact");
+      return;
+    }
+
     this.setState(prevState => {
       const normName = name.trim();
 
@@ -46,6 +51,12 @@ export class App extends Component {
       name.toLowerCase().includes(normalizedFilter)
     );
   };
+
+  hasContactWithName = searchName => {
+    const searchNameNormalized = searchName.trim().toLowerCase();
+
+    return this.state.contacts.some(
+      ({ name }) => name.toLowerCase() === searchNameNormalized
     );
   };
 
