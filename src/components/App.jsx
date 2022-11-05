@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { nanoid } from 'nanoid';
 import { theme } from 'utils/theme';
 import { Box } from 'components/common/Box/Box.styled';
 import { ContactForm, ContactList, Filter } from './AllComponents';
@@ -16,7 +17,7 @@ export class App extends Component {
     filter: '',
   };
 
-  onContactAdd = ({ name, number, id }) => {
+  onContactAdd = ({ name, number }) => {
     if (this.hasContactWithName(name)) {
       Notify.warning("Can't add already existing contact");
       return;
@@ -26,7 +27,10 @@ export class App extends Component {
       const normName = name.trim();
 
       return {
-        contacts: [...prevState.contacts, { name: normName, number, id }],
+        contacts: [
+          ...prevState.contacts,
+          { name: normName, number, id: nanoid() },
+        ],
       };
     });
   };

@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import { nanoid } from 'nanoid';
 import {
   AddContactButton,
   AddContactForm,
@@ -16,7 +15,6 @@ export class ContactForm extends Component {
     this.props.onSubmitCallback({
       name: nameEl.value,
       number: numberEl.value,
-      id: nanoid(),
     });
 
     e.currentTarget.reset();
