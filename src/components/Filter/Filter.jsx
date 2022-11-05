@@ -5,7 +5,7 @@ export function Filter({ onInputCallback }) {
   return (
     <FilterLabel>
       Filter contacts by name
-      <FilterInput onInput={onInputCallback} />
+      <FilterInput onInput={e => onInputCallback(e.target.value)} />
     </FilterLabel>
   );
 }
